@@ -1,0 +1,40 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Music Recommendation System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body style="background-color: black; color: white;">
+   
+    <div class="container">
+        <h2 class="text-center">Music Recommendation System</h2>
+            <form action="/recom" method="post">
+                <div class="form-group">
+                    <label for="text">Select Song</label>
+
+                    <select name="names" class="form-control">
+                        {% for i in name %}
+                        <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button style="margin-top: 20px;" type="submit" class="btn btn-primary btn-lg">Recommendation</button>
+            </form>
+            <div class="row">
+            {% for i in songs %}
+              <div class="card" style="width: 18rem;">
+                <img src="{{url_for('static',filename='img.jpg')}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{i}}</h5>
+                </div>
+              </div>
+            {% endfor %}
+            
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
